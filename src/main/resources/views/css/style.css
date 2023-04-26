@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 24, 2023, 2:05:36 PM
+    Author     : nguye
+*/
+
+#body {
+    -fx-background-image: url(./images/bg.jpg)
+}
+
+#tf_usr:focus, #tf_pwd:focus {
+    -fx-border: 1px solid blue;
+}
