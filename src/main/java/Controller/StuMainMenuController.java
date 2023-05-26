@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.Cls;
 import Model.Enroll;
+import Model.Sem;
 import Model.Stu;
 import com.jfoenix.controls.JFXComboBox;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,15 +32,11 @@ import javafx.scene.text.Text;
 
 public class StuMainMenuController extends BaseMainMenuController implements Initializable {
     
-    public class Stu_Alt extends Stu {
+    public class Enroll_Alt extends Enroll {
         int no;
-        double AVG_GRADE;
 
-        public Stu_Alt() {
-        }
-
-        public Stu_Alt(int STU_NUM, String STU_LNAME, String STU_FNAME, String STU_INTIAL, String STU_EMAIL, Date STU_DOB, String STU_GENDER, String DEPT_CODE, String MGTCLS_CODE) {
-            super(STU_NUM, STU_LNAME, STU_FNAME, STU_INTIAL, STU_EMAIL, STU_DOB, STU_GENDER, DEPT_CODE, MGTCLS_CODE);
+        public Enroll_Alt(int STU_NUM, String CLS_CODE, Date ENROLL_DATE, float ENROLL_GRADE) {
+            super(STU_NUM, CLS_CODE, ENROLL_DATE, ENROLL_GRADE);
         }
 
         public int getNo() {
@@ -47,17 +46,13 @@ public class StuMainMenuController extends BaseMainMenuController implements Ini
         public void setNo(int no) {
             this.no = no;
         }
-
-        public double getAVG_GRADE() {
-            return AVG_GRADE;
-        }
-
-        public void setAVG_GRADE(double AVG_GRADE) {
-            this.AVG_GRADE = AVG_GRADE;
-        }
     }
     
+    private static Stu stu;
+    
     private String[] testing = {"test 1","test 2","test 3","test 4","test 5","test 6"};
+    
+    private List<Sem> sem_list = new ArrayList<>();
     
     @FXML
     private Text Cls;
@@ -72,41 +67,24 @@ public class StuMainMenuController extends BaseMainMenuController implements Ini
     private JFXComboBox<String> SemChooser;
     
     @FXML
-    private TableColumn<?, ?> col_dept_code;
-
-    @FXML
-    private TableColumn<?, ?> col_mgtcls_code;
-
-    @FXML
     private TableColumn<?, ?> col_no;
 
     @FXML
-    private TableColumn<?, ?> col_stu_dob;
+    private TableColumn<?, ?> col_cls_code;
 
     @FXML
-    private TableColumn<?, ?> col_stu_email;
+    private TableColumn<?, ?> col_enroll_date;
 
     @FXML
-    private TableColumn<?, ?> col_stu_fname;
+    private TableColumn<?, ?> col_enroll_grade;
 
     @FXML
-    private TableColumn<?, ?> col_stu_gender;
-
-    @FXML
-    private TableColumn<?, ?> col_stu_initial;
-
-    @FXML
-    private TableColumn<?, ?> col_stu_lname;
-
-    @FXML
-    private TableColumn<?, ?> col_stu_num;
-
-    @FXML
-    private TableView<Stu_Alt> tb_data;
+    private TableView<Enroll_Alt> tb_data;
     
     @FXML
     void ChooseSem(ActionEvent event) {
         Sem.setText(SemChooser.getValue());
+        displayStuTable(this.sem_list.get(SemChooser.getSelectionModel().getSelectedIndex()), null);
     }
     
     @FXML
@@ -116,22 +94,41 @@ public class StuMainMenuController extends BaseMainMenuController implements Ini
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        SemChooser.getItems().addAll(testing);
-        ClsChooser.getItems().addAll(testing);
-        SemChooser.setOnAction(this::ChooseSem);
-        ClsChooser.setOnAction(this::ChooseCls);
-        
+        try {
+            this.openConnection();
+            PreparedStatement preSql = this.conn.prepareStatement("SELECT * FROM SEMESTER");
+            ResultSet sem_set = this.getData(preSql);
+            List<String> sem_options = new ArrayList<String>();
+            while (sem_set.next()) {
+                Sem sem = new Sem(
+                        sem_set.getString("SEM_CODE"),
+                        sem_set.getInt("SEM_YEAR"),
+                        sem_set.getDate("SEM_START_DATE"),
+                        sem_set.getDate("SEM_END_DATE")
+                );
+                sem_options.add(sem.getSEM_CODE() + " - " + sem.getSEM_YEAR());
+                this.sem_list.add(sem);
+            }
+            this.closeConnection(preSql);
+            SemChooser.getItems().addAll(sem_options);
+            ClsChooser.getItems().addAll(testing);
+            SemChooser.setOnAction(this::ChooseSem);
+            ClsChooser.setOnAction(this::ChooseCls);
+        } catch (SQLException ex) {
+            Logger.getLogger(StuMainMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void displayStuTable(Sem sem, Cls cls) {
         //Get students data
         PreparedStatement preSql;
         try {
             this.openConnection();
-            preSql = this.conn.prepareStatement("SELECT * FROM student");
+            preSql = this.conn.prepareStatement("SELECT * FROM student WHERE STU_NUM = ?");
+            preSql.setInt(1, this.usr.getUSER_ID());
             ResultSet stu_set = this.getData(preSql);
-            List<Stu_Alt> stu_list = new ArrayList<>();
-            int no = 0;
-            while (stu_set.next()) {
-                no++;
-                Stu_Alt stu_alt = new Stu_Alt(
+            if (stu_set.next()) {
+                Stu stu = new Stu(
                         stu_set.getInt("STU_NUM"),
                         stu_set.getString("STU_LNAME"),
                         stu_set.getString("STU_FNAME"),
@@ -142,52 +139,38 @@ public class StuMainMenuController extends BaseMainMenuController implements Ini
                         stu_set.getString("DEPT_CODE"),
                         stu_set.getString("MGTCLS_CODE")
                 );
-                stu_alt.setNo(no);
-                stu_list.add(stu_alt);
+                this.stu = stu;
             }
             this.closeConnection(preSql);
             
             this.openConnection();
-            preSql = this.conn.prepareStatement("SELECT * FROM enroll");
+            preSql = this.conn.prepareStatement("SELECT * FROM enroll WHERE ENROLL_DATE >= ? AND ENROLL_DATE <= ? AND STU_NUM = ?");
+            preSql.setDate(1, sem.getSEM_START_DATE());
+            preSql.setDate(2, sem.getSEM_END_DATE());            
+            preSql.setInt(3, this.stu.getSTU_NUM());
+
             ResultSet enroll_set = this.getData(preSql);
-            List<Enroll> enroll_list = new ArrayList<>();
+            List<Enroll_Alt> enroll_list = new ArrayList<>();
+            int no = 0;
             while (enroll_set.next()) {
-                Enroll enroll = new Enroll(
+                Enroll_Alt enroll = new Enroll_Alt(
                         enroll_set.getInt("STU_NUM"),
                         enroll_set.getString("CLS_CODE"),
                         enroll_set.getDate("ENROLL_DATE"),
                         enroll_set.getFloat("ENROLL_GRADE")
                 );
+                enroll.setNo(++no);
                 enroll_list.add(enroll);
             }
             this.closeConnection(preSql);
-            for (Stu_Alt stu_alt : stu_list) {
-                int count_grade = 0;
-                double total_grade = 0;
-                for (Enroll enroll : enroll_list) {
-                    if (stu_alt.getSTU_NUM() == enroll.getSTU_NUM()) {
-                        count_grade++;
-                        total_grade += enroll.getENROLL_GRADE();
-                    }
-                }
-                if (count_grade == 0) stu_alt.setAVG_GRADE(0);
-                else stu_alt.setAVG_GRADE(total_grade / count_grade);
-            }
             
-            ObservableList<Stu_Alt> stu_obs = FXCollections.observableArrayList(stu_list);
+            ObservableList<Enroll_Alt> enroll_obs = FXCollections.observableArrayList(enroll_list);
             col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
-            col_stu_num.setCellValueFactory(new PropertyValueFactory<>("STU_NUM"));
-            col_stu_lname.setCellValueFactory(new PropertyValueFactory<>("STU_LNAME"));
-            col_stu_fname.setCellValueFactory(new PropertyValueFactory<>("STU_FNAME"));
-            col_stu_initial.setCellValueFactory(new PropertyValueFactory<>("STU_INITIAL"));
-            col_stu_email.setCellValueFactory(new PropertyValueFactory<>("STU_EMAIL"));
-            col_stu_dob.setCellValueFactory(new PropertyValueFactory<>("STU_DOB"));
-            col_stu_gender.setCellValueFactory(new PropertyValueFactory<>("STU_GENDER"));
-            col_dept_code.setCellValueFactory(new PropertyValueFactory<>("DEPT_CODE"));
-            col_mgtcls_code.setCellValueFactory(new PropertyValueFactory<>("MGTCLS_CODE"));  
+            col_cls_code.setCellValueFactory(new PropertyValueFactory<>("CLS_CODE"));
+            col_enroll_date.setCellValueFactory(new PropertyValueFactory<>("ENROLL_DATE"));
+            col_enroll_grade.setCellValueFactory(new PropertyValueFactory<>("ENROLL_GRADE")); 
             
-            tb_data.getItems().setAll(stu_obs);
-            System.out.println(stu_list);
+            tb_data.getItems().setAll(enroll_obs);
         } catch (SQLException ex) {
             Logger.getLogger(StuMainMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }

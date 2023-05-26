@@ -7,6 +7,7 @@ package Controller;
  *
  * @author nguye
  */
+import Model.User;
 import com.jfoenix.controls.JFXButton;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,6 +25,7 @@ public class BaseController{
     private static String user = Config.USERNAME;
     private static String password = Config.PASSWORD;
     public static Connection conn = null;
+    public static User usr = null;
     
     @FXML
     private JFXButton ClsButton;

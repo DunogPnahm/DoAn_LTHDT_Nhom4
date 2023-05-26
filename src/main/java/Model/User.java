@@ -17,6 +17,13 @@ public class User {
     public User() {
     }
 
+    public User(String USER_ACC, String USER_PSWD, String USER_ROLE, int USER_ID) {
+        this.USER_ACC = USER_ACC;
+        this.USER_PSWD = USER_PSWD;
+        this.USER_ROLE = USER_ROLE;
+        this.USER_ID = USER_ID;
+    }
+
     public User(String USER_ACC, String USER_PSWD, String USER_ROLE, Emp emp) {
         this.USER_ACC = USER_ACC;
         this.USER_PSWD = USER_PSWD;

@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.BaseController;
+import Model.User;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -27,13 +28,13 @@ public class LoginController extends BaseController implements Initializable {
 
     @FXML
     private ChoiceBox<String> themeButton;
-    
+
     @FXML
     private Text chooseTheme;
-    
+
     @FXML
     private Pane body;
-    
+
     @FXML
     private Button btn_reg;
 
@@ -42,12 +43,12 @@ public class LoginController extends BaseController implements Initializable {
 
     @FXML
     private TextField tf_usr;
-    
+
     @FXML
     private Text txt_err;
 
-    private String[] theme = {"background 1","background 2","background 3","background 4","background 5","background 6"};
-    
+    private String[] theme = {"background 1", "background 2", "background 3", "background 4", "background 5", "background 6"};
+
     public void login() {
         if (tf_usr.getText() == null || tf_usr.getText().isBlank()) {
             tf_usr.requestFocus();
@@ -57,7 +58,7 @@ public class LoginController extends BaseController implements Initializable {
             tf_pwd.requestFocus();
             return;
         }
-        
+
         try {
             this.openConnection();
             PreparedStatement preSql = this.conn.prepareStatement("SELECT * FROM USER WHERE USER_ACC = ? AND USER_PSWD = ?");
@@ -65,7 +66,16 @@ public class LoginController extends BaseController implements Initializable {
             preSql.setString(2, tf_pwd.getText());
             ResultSet rs = this.getData(preSql);
             if (rs.next()) {
-                App.setRoot("StuMainMenu");
+                User usr = new User(
+                        rs.getString("USER_ACC"),
+                        "",
+                        rs.getString("USER_ROLE"),
+                        rs.getInt("USER_ID")
+                );
+                this.usr = usr;
+                if (usr.getUSER_ROLE().compareTo("STU") == 0) {
+                    App.setRoot("StuMainMenu");
+                }
             } else {
                 txt_err.setVisible(true);
             }
@@ -74,33 +84,38 @@ public class LoginController extends BaseController implements Initializable {
             ex.printStackTrace();
         }
     }
-    
+
     public void hideErr() {
         txt_err.setVisible(false);
     }
-    
+
     @FXML
-    public void changeTheme(ActionEvent event)
-    {
+    public void changeTheme(ActionEvent event) {
         chooseTheme.setVisible(false);
-        switch(themeButton.getValue())
-        {
-            case "background 1": body.setStyle("-fx-background-image: url('./images/bg1.jpg');");
+        switch (themeButton.getValue()) {
+            case "background 1":
+                body.setStyle("-fx-background-image: url('./images/bg1.jpg');");
                 break;
-            case "background 2": body.setStyle("-fx-background-image: url('./images/bg2.jpg');");
+            case "background 2":
+                body.setStyle("-fx-background-image: url('./images/bg2.jpg');");
                 break;
-            case "background 3": body.setStyle("-fx-background-image: url('./images/bg3.jpg');");
+            case "background 3":
+                body.setStyle("-fx-background-image: url('./images/bg3.jpg');");
                 break;
-            case "background 4": body.setStyle("-fx-background-image: url('./images/bg4.jpg');");
+            case "background 4":
+                body.setStyle("-fx-background-image: url('./images/bg4.jpg');");
                 break;
-            case "background 5": body.setStyle("-fx-background-image: url('./images/bg5.jpg');");
+            case "background 5":
+                body.setStyle("-fx-background-image: url('./images/bg5.jpg');");
                 break;
-            case "background 6": body.setStyle("-fx-background-image: url('./images/bg6.jpg');");
+            case "background 6":
+                body.setStyle("-fx-background-image: url('./images/bg6.jpg');");
                 break;
-            default: break;
+            default:
+                break;
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         hideErr();
