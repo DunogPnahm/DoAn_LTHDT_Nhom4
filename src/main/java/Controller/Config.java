@@ -10,7 +10,7 @@ package Controller;
  */
 public class Config {
     public static final String HOST = "jdbc:mysql://localhost:3306/";
-    public static final String DATABASE = "doanlthdt";
+    public static final String DATABASE = "doanlthdtnhom4";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "";
     

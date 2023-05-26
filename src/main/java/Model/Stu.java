@@ -14,28 +14,26 @@ public class Stu {
     private int STU_NUM;
     private String STU_LNAME;
     private String STU_FNAME;
-    private char STU_INTIAL;
+    private String STU_INITIAL;
     private String STU_EMAIL;
     private Date STU_DOB;
-    private char STU_GENDER;
-    private Dept dept;
-    private Mgtcls mgtcls;
-    private String STU_PHONE;
+    private String STU_GENDER;
+    private String DEPT_CODE;
+    private String MGTCLS_CODE;
 
     public Stu() {
     }
 
-    public Stu(int STU_NUM, String STU_LNAME, String STU_FNAME, char STU_INTIAL, String STU_EMAIL, Date STU_DOB, char STU_GENDER, Dept dept, Mgtcls mgtcls, String STU_PHONE) {
+    public Stu(int STU_NUM, String STU_LNAME, String STU_FNAME, String STU_INITIAL, String STU_EMAIL, Date STU_DOB, String STU_GENDER, String DEPT_CODE, String MGTCLS_CODE) {
         this.STU_NUM = STU_NUM;
         this.STU_LNAME = STU_LNAME;
         this.STU_FNAME = STU_FNAME;
-        this.STU_INTIAL = STU_INTIAL;
+        this.STU_INITIAL = STU_INITIAL;
         this.STU_EMAIL = STU_EMAIL;
         this.STU_DOB = STU_DOB;
         this.STU_GENDER = STU_GENDER;
-        this.dept = dept;
-        this.mgtcls = mgtcls;
-        this.STU_PHONE = STU_PHONE;
+        this.DEPT_CODE = DEPT_CODE;
+        this.MGTCLS_CODE = MGTCLS_CODE;
     }
 
     public int getSTU_NUM() {
@@ -50,8 +48,8 @@ public class Stu {
         return STU_FNAME;
     }
 
-    public char getSTU_INTIAL() {
-        return STU_INTIAL;
+    public String getSTU_INITIAL() {
+        return STU_INITIAL;
     }
 
     public String getSTU_EMAIL() {
@@ -62,16 +60,16 @@ public class Stu {
         return STU_DOB;
     }
 
-    public char getSTU_GENDER() {
+    public String getSTU_GENDER() {
         return STU_GENDER;
     }
 
-    public Dept getDept() {
-        return dept;
+    public String getDEPT_CODE() {
+        return DEPT_CODE;
     }
 
-    public Mgtcls getMgtcls() {
-        return mgtcls;
+    public String getMGTCLS_CODE() {
+        return MGTCLS_CODE;
     }
 
     public void setSTU_NUM(int STU_NUM) {
@@ -86,8 +84,8 @@ public class Stu {
         this.STU_FNAME = STU_FNAME;
     }
 
-    public void setSTU_INTIAL(char STU_INTIAL) {
-        this.STU_INTIAL = STU_INTIAL;
+    public void setSTU_INITIAL(String STU_INITIAL) {
+        this.STU_INITIAL = STU_INITIAL;
     }
 
     public void setSTU_EMAIL(String STU_EMAIL) {
@@ -98,24 +96,16 @@ public class Stu {
         this.STU_DOB = STU_DOB;
     }
 
-    public void setSTU_GENDER(char STU_GENDER) {
+    public void setSTU_GENDER(String STU_GENDER) {
         this.STU_GENDER = STU_GENDER;
     }
 
-    public void setDept(Dept dept) {
-        this.dept = dept;
+    public void setDEPT_CODE(String DEPT_CODE) {
+        this.DEPT_CODE = DEPT_CODE;
     }
 
-    public void setMgtcls(Mgtcls mgtcls) {
-        this.mgtcls = mgtcls;
-    }
-
-    public String getSTU_PHONE() {
-        return STU_PHONE;
-    }
-
-    public void setSTU_PHONE(String STU_PHONE) {
-        this.STU_PHONE = STU_PHONE;
+    public void setMGTCLS_CODE(String MGTCLS_CODE) {
+        this.MGTCLS_CODE = MGTCLS_CODE;
     }
     
 }

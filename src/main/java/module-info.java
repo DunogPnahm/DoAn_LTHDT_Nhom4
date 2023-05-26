@@ -1,9 +1,12 @@
-module com.mycompany.do2g4 {
+module java {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
     requires com.jfoenix;
 
-    opens Controller to javafx.fxml;
+    opens Controller;
+    opens Model;
     exports Controller;
+    exports Model;
+
 }

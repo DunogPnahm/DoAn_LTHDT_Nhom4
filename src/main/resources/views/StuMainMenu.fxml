@@ -115,8 +115,16 @@
          <children>
             <TableView fx:id="tb_data" layoutX="73.0" layoutY="100.0" prefHeight="477.0" prefWidth="681.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="col_no" prefWidth="31.0" text="STT" />
+                <TableColumn fx:id="col_stu_num" prefWidth="63.0" text="MSSV" />
+                  <TableColumn fx:id="col_stu_lname" prefWidth="76.0" text="Họ" />
+                  <TableColumn fx:id="col_stu_fname" prefWidth="71.0" text="Tên" />
+                  <TableColumn fx:id="col_stu_initial" prefWidth="40.0" text="Đệm" />
+                  <TableColumn fx:id="col_stu_email" prefWidth="106.0" text="Email" />
+                  <TableColumn fx:id="col_stu_dob" prefWidth="72.0" text="Ngày sinh" />
+                  <TableColumn fx:id="col_stu_gender" prefWidth="53.0" text="Giới tính" />
+                  <TableColumn fx:id="col_dept_code" prefWidth="78.0" text="DEPT_CODE" />
+                  <TableColumn fx:id="col_mgtcls_code" prefWidth="90.0" text="MGTCLS_CODE" />
               </columns>
             </TableView>
          </children></Pane>
