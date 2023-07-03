@@ -1,56 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import java.lang.String?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@css/NewStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@css/NewStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
    <children>
-      <Text fx:id="txt_err" layoutX="617.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tài khoản không tồn tại !" visible="false" />
-      <Pane layoutX="507.0" layoutY="223.0" prefHeight="288.0" prefWidth="352.0" styleClass="TransPane" />
-      <ChoiceBox fx:id="themeButton" layoutX="1103.0" layoutY="14.0" prefWidth="150.0" />
-      <Text disable="true" layoutX="552.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ĐĂNG NHẬP TÀI KHOẢN">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Text>
-      <Line endX="100.0" layoutX="683.0" layoutY="296.0" startX="-100.0" stroke="WHITE">
-         <effect>
-            <Glow level="1.0" />
-         </effect></Line>
-      <Text layoutX="529.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tài khoản:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="530.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mật khẩu:">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField fx:id="tf_usr" layoutX="529.0" layoutY="330.0" onKeyTyped="#hideErr" prefHeight="25.0" prefWidth="308.0" promptText="user_name" />
-      <PasswordField fx:id="tf_pwd" layoutX="529.0" layoutY="379.0" onKeyTyped="#hideErr" prefHeight="25.0" prefWidth="308.0" promptText="password" />
-      <Text fx:id="chooseTheme" layoutX="1109.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please choose a theme" />
-      <JFXButton fx:id="ClsButton" layoutX="1302.0" layoutY="18.0" onMouseClicked="#ExitApp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: RED;" text="X" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btn_log" layoutX="570.0" layoutY="424.0" onMouseClicked="#login" style="-fx-background-color: #333333; -fx-border-width: 1px; -fx-border-color: #ffffff;" styleClass="FocusPane" text="Đăng nhập" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btn_reg" layoutX="717.0" layoutY="424.0" onMouseClicked="#login" style="-fx-background-color: #333333; -fx-border-width: 1px; -fx-border-color: #ffffff;" styleClass="FocusPane" text="Đăng ký" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
+      <AnchorPane fx:id="body" layoutX="683.0" prefHeight="768.0" prefWidth="683.0">
+         <children>
+            <Pane layoutX="156.0" layoutY="240.0" prefHeight="300.0" prefWidth="370.0" styleClass="TransPane" />
+            <Text disable="true" layoutX="210.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ĐĂNG NHẬP TÀI KHOẢN">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tf_usr" layoutX="196.0" layoutY="330.0" onKeyTyped="#hideErr" prefHeight="25.0" prefWidth="308.0" promptText="user_name" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;" />
+            <JFXButton fx:id="ClsButton" layoutX="606.0" layoutY="14.0" onMouseClicked="#ExitApp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_log" layoutX="241.0" layoutY="468.0" onMouseClicked="#login" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #333333; -fx-border-width: 1px; -fx-border-color: #ffffff;" styleClass="FocusPane" text="Đăng nhập" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </JFXButton>
+            <PasswordField fx:id="tf_pwd" layoutX="196.0" layoutY="400.0" onKeyTyped="#hideErr" prefHeight="25.0" prefWidth="308.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ffffff; -fx-border-width: 0px 0px 2px 0px;" />
+            <Pane fx:id="Acc_Ic" layoutX="168.0" layoutY="402.0" prefHeight="24.0" prefWidth="24.0" />
+            <Pane fx:id="Pswd_Ic" layoutX="170.0" layoutY="333.0" prefHeight="24.0" prefWidth="24.0" />
+            <Pane fx:id="pn_err" layoutX="157.0" layoutY="543.0" opacity="0.4" prefHeight="75.0" prefWidth="370.0" style="-fx-background-color: RED;" visible="false" />
+            <Text fx:id="txt_err" layoutX="235.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tài khoản không tồn tại!" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Text>
+            <Pane fx:id="pn_welcome" layoutX="157.0" layoutY="543.0" opacity="0.4" prefHeight="75.0" prefWidth="370.0" style="-fx-background-color: GREEN;" visible="false" />
+            <Text fx:id="txt_welcome" layoutX="245.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Đăng nhập thành công" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txt_wait" layoutX="245.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chuyển trang sau 3-5s" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="768.0" prefWidth="683.0" style="-fx-background-color: #5e72e6;">
+         <children>
+            <Pane layoutX="141.0" layoutY="534.0" opacity="0.4" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: #bcbcbc;" />
+            <Text disable="true" layoutX="275.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THÔNG BÁO">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="notif" editable="false" layoutX="141.0" layoutY="534.0" prefHeight="150.0" prefWidth="400.0" style="-fx-background-color: transparent;" wrapText="true">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </TextArea>
+            <JFXButton layoutX="487.0" layoutY="534.0" onAction="#nextNotif" prefHeight="150.0" prefWidth="50.0" text="&gt;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="PrevNextButton" />
+                  <String fx:value="HoverButton" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="141.0" layoutY="534.0" onAction="#prevNotif" prefHeight="150.0" prefWidth="50.0" text="&lt;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="PrevNextButton" />
+                  <String fx:value="HoverButton" />
+               </styleClass>
+            </JFXButton>
+            <Pane fx:id="HuceLogo" layoutX="292.0" layoutY="94.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #000000;" />
+            <Text layoutX="14.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="51.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HANOI UNIVERSITY OF CIVIL ENGINEERING (HUCE)">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="115.0" layoutY="740.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nếu quên mật khẩu thì hãy liên lạc tới số điện thoại dưới đây để được hỗ trợ" />
+            <Text layoutX="309.0" layoutY="759.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0983581617" />
+         </children>
+      </AnchorPane>
    </children>
 </Pane>

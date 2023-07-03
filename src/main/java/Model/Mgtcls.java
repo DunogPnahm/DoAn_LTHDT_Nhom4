@@ -10,17 +10,19 @@ package Model;
  */
 public class Mgtcls {
     private String MGTCLS_CODE;
+    private int PROF_NUM;
+    private String SEM_CODE;
     private Prof prof;
     private Sem sem;
 
     public Mgtcls() {
 
     }
-    
-    public Mgtcls(String MGTCLS_CODE, Prof prof, Sem sem) {
+
+    public Mgtcls(String MGTCLS_CODE, int PROF_NUM, String SEM_CODE) {
         this.MGTCLS_CODE = MGTCLS_CODE;
-        this.prof = prof;
-        this.sem = sem;
+        this.PROF_NUM = PROF_NUM;
+        this.SEM_CODE = SEM_CODE;
     }
 
     public String getMGTCLS_CODE() {
@@ -46,6 +48,26 @@ public class Mgtcls {
     public void setSEM(Sem sem) {
         this.sem = sem;
     }
+
+    public int getPROF_NUM() {
+        return PROF_NUM;
+    }
+
+    public void setPROF_NUM(int PROF_NUM) {
+        this.PROF_NUM = PROF_NUM;
+    }
+
+    public String getSEM_CODE() {
+        return SEM_CODE;
+    }
+
+    public void setSEM_CODE(String SEM_CODE) {
+        this.SEM_CODE = SEM_CODE;
+    }
    
+    @Override
+    public String toString() {
+        return MGTCLS_CODE;
+    }
     
 }

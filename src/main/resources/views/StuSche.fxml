@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@css/NewStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StuScheController">
+   <children>
+      <Pane layoutX="462.0" layoutY="132.0" prefHeight="600.0" prefWidth="890.0" styleClass="TransPane" />
+      <Pane layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="400.0" style="-fx-border-width: 2px; -fx-border-color: #FFFFFF;">
+         <children>
+            <Pane fx:id="UsrBckgr" layoutX="5.0" layoutY="5.0" prefHeight="90.0" prefWidth="390.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="114.0" prefHeight="60.0" prefWidth="400.0" styleClass="TransPane" />
+      <JFXButton fx:id="ClsButton" layoutX="1298.0" layoutY="14.0" onMouseClicked="#ExitApp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <Pane fx:id="HuceLogo" layoutX="484.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #000000;" />
+      <Text layoutX="593.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="593.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HANOI UNIVERSITY OF CIVIL ENGINEERING (HUCE)">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="StuName" layoutX="110.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="StuName" wrappingWidth="263.13671875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <JFXButton layoutX="20.0" layoutY="504.0" onMouseClicked="#ToTask" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="131.0" layoutY="609.0" onMouseClicked="#ToTask" strokeType="OUTSIDE" strokeWidth="0.0" text="Nhiệm vụ trên lớp">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="Logout_btn" layoutX="20.0" layoutY="629.0" onMouseClicked="#ToMain" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="157.0" layoutY="734.0" onMouseClicked="#ToMain" strokeType="OUTSIDE" strokeWidth="0.0" text="Về trang chủ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Line endX="699.0" endY="119.0" layoutX="620.0" layoutY="99.0" startX="-125.0" startY="119.0" stroke="WHITE">
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Line>
+      <Pane fx:id="Ret_Ic" layoutX="196.0" layoutY="648.0" onMouseClicked="#ToMain" prefHeight="64.0" prefWidth="64.0" />
+      <Pane fx:id="Task_Ic" layoutX="188.0" layoutY="523.0" onMouseClicked="#ToTask" prefHeight="64.0" prefWidth="64.0" />
+      <Circle fill="WHITE" layoutX="64.0" layoutY="114.0" radius="34.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <Pane fx:id="Avatar" layoutX="32.0" layoutY="82.0" prefHeight="64.0" prefWidth="64.0" />
+      <JFXButton layoutX="20.0" layoutY="379.0" onMouseClicked="#ToDeptProfInfo" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="77.0" layoutY="484.0" onMouseClicked="#ToDeptProfInfo" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin các khoa/giảng viên">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="Dept_Ic" layoutX="186.0" layoutY="398.0" onMouseClicked="#ToDeptProfInfo" prefHeight="64.0" prefWidth="64.0" />
+      <JFXButton layoutX="20.0" layoutY="254.0" prefHeight="125.0" prefWidth="400.0" style="-fx-border-color: #519bf0; -fx-background-color: #000000;" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="118.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thông tin các lớp học">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="Cls_Ic" layoutX="188.0" layoutY="273.0" prefHeight="64.0" prefWidth="64.0" />
+      <Text fx:id="StuCls" layoutX="110.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class" wrappingWidth="263.13671875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TabPane layoutX="462.0" layoutY="132.0" prefHeight="600.0" prefWidth="890.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Lớp học đã tham gia (Chưa có điểm)">
+            <content>
+              <AnchorPane layoutX="462.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tb_data" layoutX="80.0" layoutY="80.0" prefHeight="477.0" prefWidth="681.0">
+                           <columns>
+                              <TableColumn fx:id="col_no" prefWidth="31.0" text="STT" />
+                              <TableColumn fx:id="col_crs" prefWidth="240.0" text="Môn học" />
+                              <TableColumn fx:id="col_cls_code" prefWidth="121.0" text="Mã lớp học" />
+                              <TableColumn fx:id="col_enroll_date" prefWidth="164.0" text="Thời gian nhập học" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Tất cả lớp học">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tb_data1" layoutX="80.0" layoutY="80.0" prefHeight="477.0" prefWidth="681.0">
+                           <columns>
+                              <TableColumn fx:id="col_no1" prefWidth="31.0" text="STT" />
+                              <TableColumn fx:id="col_crs1" prefWidth="240.0" text="Môn học" />
+                              <TableColumn fx:id="col_cls_code1" prefWidth="121.0" text="Mã lớp học" />
+                              <TableColumn fx:id="col_enroll_date1" prefWidth="164.0" text="Thời gian khai giảng" />
+                              <TableColumn fx:id="col_detail_cls" prefWidth="75.0" text="Chi tiết" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="in_search" layoutX="80.0" layoutY="21.0" onAction="#SearchResult" promptText="Nhập mã lớp cần tìm" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Thông tin sinh viên mỗi lớp">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXComboBox fx:id="ClsChooser" layoutX="31.0" layoutY="14.0" onAction="#ChooseCls" prefHeight="27.0" prefWidth="341.0" style="-fx-background-color: #333333; -fx-border-width: 0.5px; -fx-border-color: #ffffff;" />
+                        <Text fx:id="Cls" layoutX="45.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chọn lớp học">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="tb_data2" layoutX="80.0" layoutY="80.0" prefHeight="477.0" prefWidth="681.0">
+                           <columns>
+                              <TableColumn fx:id="col_no2" prefWidth="31.0" text="STT" />
+                              <TableColumn fx:id="col_stu" prefWidth="190.0" text="Tên sinh viên" />
+                              <TableColumn fx:id="col_stunum" prefWidth="100.0" text="Mã sinh viên" />
+                              <TableColumn fx:id="col_cls_code2" prefWidth="121.0" text="Mã lớp học" />
+                              <TableColumn fx:id="col_detail_stu" prefWidth="75.0" text="Chi tiết" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

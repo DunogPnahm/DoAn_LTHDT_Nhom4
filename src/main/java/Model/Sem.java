@@ -58,5 +58,9 @@ public class Sem {
     public void setSEM_END_DATE(Date SEM_END_DATE) {
         this.SEM_END_DATE = SEM_END_DATE;
     }
-    
+
+    @Override
+    public String toString() {
+        return SEM_CODE + " - " + SEM_YEAR;
+    }
 }

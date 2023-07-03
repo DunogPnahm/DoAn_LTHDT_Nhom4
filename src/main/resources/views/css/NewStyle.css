@@ -15,16 +15,48 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image: url('./images/UserBackground.jpg');
 }
 
+#Task_Ic {
+    -fx-background-image: url('./images/to-do-list.png');
+}
+
+#Specialty_Ic {
+    -fx-background-image: url('./images/star.png');
+}
+
+#Grade_Ic {
+    -fx-background-image: url('./images/test.png');
+}
+
+#Cls_Ic {
+    -fx-background-image: url('./images/training.png');
+}
+
+#Dept_Ic {
+    -fx-background-image: url('./images/Dept.png');
+}
+
 #Lgt_Ic {
     -fx-background-image: url('./images/logout.png');
+}
+
+#Rem_Ic {
+    -fx-background-image: url('./images/bell.png');
 }
 
 #Misc_Ic {
     -fx-background-image: url('./images/open-book.png');
 }
 
-#Name_Ic {
-    -fx-background-image: url('./images/user.png');
+#StartTime_Ic {
+    -fx-background-image: url('./images/time.png');
+}
+
+#Pswd_Ic {
+    -fx-background-image: url('./images/acc.png');
+}
+
+#Acc_Ic {
+    -fx-background-image: url('./images/pswd.png');
 }
 
 #HuceLogo {
@@ -51,8 +83,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-image: url('./images/calendar.png');
 }
 
-#Phone_Ic {
-    -fx-background-image: url('./images/telephone.png');
+#Confirm_Ic {
+    -fx-background-image: url('./images/check.png');
+}
+
+#Cancel_Ic {
+    -fx-background-image: url('./images/close.png');
+}
+
+#Ret_Ic {
+    -fx-background-image: url('./images/back.png');
 }
 
 #Major_Ic {
@@ -64,8 +104,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-background-color: WHITE !important;
 }
 
-Text{
+Text {
     -fx-fill: #FFFFFF;
+    -fx-font-family: Arial;
+}
+
+.PrevNextButton {
+    -fx-background-color: #bdbdbd;
+    -fx-opacity: 0;
+}
+
+.HoverButton:hover {
+    -fx-opacity: 0.4 !important;
 }
 
 .FocusPane:hover {
@@ -82,5 +132,6 @@ Text{
 }
 
 #tf_usr:focus, #tf_pwd:focus {
-    -fx-border: 1px solid blue;
+    -fx-border-color: solid blue !important;
+    -fx-border-width: 1px 1px 1px 1px !important;
 }

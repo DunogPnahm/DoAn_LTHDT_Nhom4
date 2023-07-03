@@ -4,69 +4,75 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author DunogPnahm
  */
 public class Prof extends Emp{
-    private Emp emp;
     private int PROF_NUM;
     private String PROF_SPECIALTY;
-    private String PROF_EMAIL;
-    private Dept dept;
+    private String DEPT_CODE;
     private String PROF_RANK;
+    private Dept dept;
 
     public Prof() {
     }
 
-    public Prof(Emp emp, String PROF_SPECIALTY, String PROF_EMAIL, Dept dept, String PROF_RANK) {
-        this.emp = emp;
-        PROF_NUM = emp.getEMP_NUM();
+    public Prof(int PROF_NUM, String PROF_SPECIALTY, String DEPT_CODE, String PROF_RANK) {
+        this.PROF_NUM = PROF_NUM;
         this.PROF_SPECIALTY = PROF_SPECIALTY;
-        this.PROF_EMAIL = PROF_EMAIL;
-        this.dept = dept;
+        this.DEPT_CODE = DEPT_CODE;
+        this.PROF_RANK = PROF_RANK;
+    }
+    
+    public Prof(int PROF_NUM, String PROF_SPECIALTY, String DEPT_CODE, String PROF_RANK, String EMP_LNAME, String EMP_FNAME, String EMP_MNAME, String EMP_JOBCODE, Date EMP_HIREDATE, Date EMP_DOB, String EMP_EMAIL) {
+        super(PROF_NUM, EMP_LNAME, EMP_FNAME, EMP_MNAME, EMP_EMAIL, EMP_JOBCODE, EMP_HIREDATE, EMP_DOB);
+        this.PROF_NUM = EMP_NUM;
+        this.PROF_SPECIALTY = PROF_SPECIALTY;
+        this.DEPT_CODE = DEPT_CODE;
         this.PROF_RANK = PROF_RANK;
     }
 
-    public Emp getEmp() {
-        return emp;
+    public int getPROF_NUM() {
+        return PROF_NUM;
+    }
+
+    public void setPROF_NUM(int PROF_NUM) {
+        this.PROF_NUM = PROF_NUM;
     }
 
     public String getPROF_SPECIALTY() {
         return PROF_SPECIALTY;
     }
 
-    public String getPROF_EMAIL() {
-        return PROF_EMAIL;
+    public void setPROF_SPECIALTY(String PROF_SPECIALTY) {
+        this.PROF_SPECIALTY = PROF_SPECIALTY;
     }
 
-    public Dept getDept() {
-        return dept;
+    public String getDEPT_CODE() {
+        return DEPT_CODE;
+    }
+
+    public void setDEPT_CODE(String DEPT_CODE) {
+        this.DEPT_CODE = DEPT_CODE;
     }
 
     public String getPROF_RANK() {
         return PROF_RANK;
     }
 
-    public void setEmp(Emp emp) {
-        this.emp = emp;
-        PROF_NUM = emp.getEMP_NUM();
+    public void setPROF_RANK(String PROF_RANK) {
+        this.PROF_RANK = PROF_RANK;
     }
 
-    public void setPROF_SPECIALTY(String PROF_SPECIALTY) {
-        this.PROF_SPECIALTY = PROF_SPECIALTY;
-    }
-
-    public void setPROF_EMAIL(String PROF_EMAIL) {
-        this.PROF_EMAIL = PROF_EMAIL;
+    public Dept getDept() {
+        return dept;
     }
 
     public void setDept(Dept dept) {
         this.dept = dept;
     }
 
-    public void setPROF_RANK(String PROF_RANK) {
-        this.PROF_RANK = PROF_RANK;
-    }
-    
 }

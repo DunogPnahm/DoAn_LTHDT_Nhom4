@@ -16,7 +16,8 @@ public class Emp {
     protected int EMP_NUM;
     protected String EMP_LNAME;
     protected String EMP_FNAME;
-    protected char EMP_INITIAL;
+    protected String EMP_MNAME;
+    protected String EMP_EMAIL;
     protected String EMP_JOBCODE;
     protected Date EMP_HIREDATE;
     protected Date EMP_DOB;
@@ -24,11 +25,28 @@ public class Emp {
     public Emp() {
     }
 
-    public Emp(int EMP_NUM, String EMP_LNAME, String EMP_FNAME, char EMP_INITIAL, String EMP_JOBCODE, Date EMP_HIREDATE, Date EMP_DOB) {
+    public String getEMP_MNAME() {
+        return EMP_MNAME;
+    }
+
+    public void setEMP_MNAME(String EMP_MNAME) {
+        this.EMP_MNAME = EMP_MNAME;
+    }
+
+    public String getEMP_EMAIL() {
+        return EMP_EMAIL;
+    }
+
+    public void setEMP_EMAIL(String EMP_EMAIL) {
+        this.EMP_EMAIL = EMP_EMAIL;
+    }
+
+    public Emp(int EMP_NUM, String EMP_LNAME, String EMP_FNAME, String EMP_MNAME, String EMP_EMAIL, String EMP_JOBCODE, Date EMP_HIREDATE, Date EMP_DOB) {
         this.EMP_NUM = EMP_NUM;
         this.EMP_LNAME = EMP_LNAME;
         this.EMP_FNAME = EMP_FNAME;
-        this.EMP_INITIAL = EMP_INITIAL;
+        this.EMP_MNAME = EMP_MNAME;
+        this.EMP_EMAIL = EMP_EMAIL;
         this.EMP_JOBCODE = EMP_JOBCODE;
         this.EMP_HIREDATE = EMP_HIREDATE;
         this.EMP_DOB = EMP_DOB;
@@ -46,8 +64,8 @@ public class Emp {
         return EMP_FNAME;
     }
 
-    public char getEMP_INITIAL() {
-        return EMP_INITIAL;
+    public String getEMP_INITIAL() {
+        return EMP_MNAME;
     }
 
     public String getEMP_JOBCODE() {
@@ -74,8 +92,8 @@ public class Emp {
         this.EMP_FNAME = EMP_FNAME;
     }
 
-    public void setEMP_INITIAL(char EMP_INITIAL) {
-        this.EMP_INITIAL = EMP_INITIAL;
+    public void setEMP_INITIAL(String EMP_MNAME) {
+        this.EMP_MNAME = EMP_MNAME;
     }
 
     public void setEMP_JOBCODE(String EMP_JOBCODE) {
@@ -89,5 +107,9 @@ public class Emp {
     public void setEMP_DOB(Date EMP_DOB) {
         this.EMP_DOB = EMP_DOB;
     }
-    
+
+    @Override
+    public String toString() {
+        return EMP_NUM + " - " + EMP_LNAME + " " + EMP_MNAME + " " + EMP_FNAME;
+    }
 }

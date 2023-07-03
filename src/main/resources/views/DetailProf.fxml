@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@css/NewStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DetailProfController">
+   <children>
+      <Pane layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="400.0" style="-fx-border-width: 2px; -fx-border-color: #FFFFFF;">
+         <children>
+            <Pane fx:id="UsrBckgr" layoutX="5.0" layoutY="5.0" prefHeight="90.0" prefWidth="390.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="114.0" prefHeight="60.0" prefWidth="400.0" styleClass="TransPane" />
+      <JFXButton fx:id="ClsButton" layoutX="1298.0" layoutY="14.0" onMouseClicked="#ExitApp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <Pane fx:id="HuceLogo" layoutX="484.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #000000;" />
+      <Text layoutX="593.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="593.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HANOI UNIVERSITY OF CIVIL ENGINEERING (HUCE)">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="Logout_btn" layoutX="20.0" layoutY="629.0" onMouseClicked="#cancel" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="159.0" layoutY="734.0" onMouseClicked="#cancel" strokeType="OUTSIDE" strokeWidth="0.0" text="Về trang chủ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane layoutX="462.0" layoutY="132.0" prefHeight="501.0" prefWidth="890.0" styleClass="TransPane" />
+      <Line endX="699.0" endY="119.0" layoutX="620.0" layoutY="99.0" startX="-125.0" startY="119.0" stroke="WHITE">
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Line>
+      <Circle fill="WHITE" layoutX="64.0" layoutY="114.0" radius="34.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <Pane fx:id="Avatar" layoutX="32.0" layoutY="82.0" prefHeight="64.0" prefWidth="64.0" />
+      <Pane layoutX="462.0" layoutY="132.0" prefHeight="501.0" prefWidth="890.0" style="-fx-background-color: transparent;">
+         <children>
+            <Text layoutX="304.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mã giảng viên" textAlignment="RIGHT" />
+            <Text layoutX="319.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cấp bậc" textAlignment="RIGHT" />
+            <Text layoutX="327.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Khoa" textAlignment="RIGHT" />
+            <Text layoutX="315.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày sinh" textAlignment="RIGHT" />
+            <Text layoutX="305.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ngày vào làm" textAlignment="RIGHT" />
+            <Text layoutX="326.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="RIGHT" />
+            <Text fx:id="detailCode" layoutX="489.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailRank" layoutX="489.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailDept" layoutX="489.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailDOB" layoutX="489.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailEmail" layoutX="489.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailHiredate" layoutX="489.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="detailProfName" layoutX="344.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tên giảng viên">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Text fx:id="StuName" layoutX="110.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="StuName" wrappingWidth="263.13671875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="StuCls" layoutX="110.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class" wrappingWidth="263.13671875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="Ret_Ic" layoutX="196.0" layoutY="648.0" onMouseClicked="#cancel" prefHeight="64.0" prefWidth="64.0" />
+   </children>
+</AnchorPane>

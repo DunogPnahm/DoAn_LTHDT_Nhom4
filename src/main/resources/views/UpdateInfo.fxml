@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="body" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@css/NewStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminScheController">
+   <children>
+      <Pane layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="400.0" style="-fx-border-width: 2px; -fx-border-color: #FFFFFF;">
+         <children>
+            <Pane fx:id="UsrBckgr" layoutX="5.0" layoutY="5.0" prefHeight="90.0" prefWidth="390.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="114.0" prefHeight="60.0" prefWidth="400.0" styleClass="TransPane" />
+      <JFXButton fx:id="ClsButton" layoutX="1298.0" layoutY="14.0" onMouseClicked="#ExitApp" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <Pane fx:id="HuceLogo" layoutX="484.0" layoutY="14.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #000000;" />
+      <Text layoutX="593.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TRƯỜNG ĐẠI HỌC XÂY DỰNG HÀ NỘI">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="593.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HANOI UNIVERSITY OF CIVIL ENGINEERING (HUCE)">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="110.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AdminName" wrappingWidth="263.13671875">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="Logout_btn" layoutX="20.0" layoutY="629.0" onMouseClicked="#ToMain" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="159.0" layoutY="734.0" onMouseClicked="#ToMain" strokeType="OUTSIDE" strokeWidth="0.0" text="Hủy thay đổi">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane layoutX="462.0" layoutY="132.0" prefHeight="501.0" prefWidth="890.0" styleClass="TransPane" />
+      <Line endX="699.0" endY="119.0" layoutX="620.0" layoutY="99.0" startX="-125.0" startY="119.0" stroke="WHITE">
+         <effect>
+            <Glow level="1.0" />
+         </effect>
+      </Line>
+      <Pane fx:id="Cancel_Ic" layoutX="196.0" layoutY="648.0" onMouseClicked="#ToMain" prefHeight="64.0" prefWidth="64.0" />
+      <Circle fill="WHITE" layoutX="64.0" layoutY="114.0" radius="34.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+      <Pane fx:id="Avatar" layoutX="32.0" layoutY="82.0" prefHeight="64.0" prefWidth="64.0" />
+      <JFXButton fx:id="Logout_btn1" layoutX="20.0" layoutY="504.0" onMouseClicked="#ToMain" prefHeight="125.0" prefWidth="400.0" text=".">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <styleClass>
+            <String fx:value="TransPane" />
+            <String fx:value="FocusPane" />
+         </styleClass>
+      </JFXButton>
+      <Text layoutX="135.0" layoutY="609.0" onMouseClicked="#ToMain" strokeType="OUTSIDE" strokeWidth="0.0" text="Xác nhận thay đổi">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="Confirm_Ic" layoutX="196.0" layoutY="523.0" onMouseClicked="#ToMain" prefHeight="64.0" prefWidth="64.0" />
+      <TextField fx:id="input_1" layoutX="694.0" layoutY="264.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_1" layoutX="636.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 1" />
+      <TextField fx:id="input_2" layoutX="694.0" layoutY="306.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_2" layoutX="636.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 2" />
+      <TextField fx:id="input_3" layoutX="694.0" layoutY="347.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_3" layoutX="636.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 3" />
+      <TextField fx:id="input_4" layoutX="694.0" layoutY="387.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_4" layoutX="636.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 4" />
+      <TextField fx:id="input_5" layoutX="694.0" layoutY="426.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_5" layoutX="636.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 5" />
+      <TextField fx:id="input_6" layoutX="694.0" layoutY="464.0" prefHeight="25.0" prefWidth="307.0" />
+      <Text fx:id="field_6" layoutX="636.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field 6" />
+   </children>
+</AnchorPane>

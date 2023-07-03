@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.User;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ public class BaseMainMenuController extends BaseController{
     
     @FXML
     void Logout(MouseEvent event) throws IOException {
+        User.setNull();
         App.setRoot("Login");
     }
 }
